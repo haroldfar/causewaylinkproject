@@ -1,7 +1,8 @@
 import pymongo
 from pymongo import MongoClient
-client = MongoClient("localhost", 27017)
-db = client["pokemon"]
-result = db.pokemon.find({})
-for r in result:
-	print r
+
+def get_db(db_name):
+	hostname = "localhost"
+	port_number = 27017
+	client = MongoClient(hostname, port_number)
+	return client[db_name]
